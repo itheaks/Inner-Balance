@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'forgetpassword.dart';
 import 'signup.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -11,15 +12,56 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+  FlutterLocalNotificationsPlugin();
+  late AndroidInitializationSettings androidInitializationSettings;
+  late InitializationSettings initializationSettings;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
+
   String _email = "";
   String _password = "";
   bool _passwordVisible = false;
 
+  @override
+  void initState() {
+    super.initState();
+    initializeNotifications();
+    scheduleNotification();
+  }
+  Future<void> initializeNotifications() async {
+    androidInitializationSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
+    initializationSettings = InitializationSettings(
+      android: androidInitializationSettings,
+    );
+    await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+  }
+
+  Future<void> scheduleNotification() async {
+    const AndroidNotificationDetails androidPlatformChannelSpecifics =
+    AndroidNotificationDetails(
+      'channel_id',
+      'channel_name',
+      //'channel_description',
+      importance: Importance.high,
+      priority: Priority.high,
+      enableVibration: true,
+    );
+    const NotificationDetails platformChannelSpecifics =
+    NotificationDetails(android: androidPlatformChannelSpecifics);
+
+    await flutterLocalNotificationsPlugin.periodicallyShow(
+      0,
+      'Inner Balance',
+      'Come and Enjoy the Application',
+      RepeatInterval.everyMinute,
+      platformChannelSpecifics,
+      androidAllowWhileIdle: true,
+    );
+  }
   Future<void> _signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();

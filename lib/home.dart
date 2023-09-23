@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:innerbalance/chatbot.dart';
-import 'package:innerbalance/tp.dart';
+import 'package:innerbalance/homemain.dart';
+import 'package:innerbalance/relax.dart';
+import 'package:innerbalance/suggestion.dart';
 import 'login.dart';
+import 'mindgames.dart';
 
 class HomePage extends StatefulWidget {
   final User user;
@@ -16,11 +19,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
-    TpScreen(),
-    TpScreen(),
+    HomeMainScreen(),
+    MusicPlayerScreen(),
     ChatBotPage(),
-    TpScreen(),
-    TpScreen(),
+    UserDashboard(),
+    SuggestionPage(),
   ];
 
   Future<void> _signOut(BuildContext context) async {
@@ -36,7 +39,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Welcome to IdeaProtect")),
+        title: Center(child: Text("Welcome to Inner Balance")),
         backgroundColor: Colors.pinkAccent.shade100,
       ),
       body: _pages[_currentIndex],
@@ -53,8 +56,8 @@ class _HomePageState extends State<HomePage> {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.library_books),
-            label: "Course",
+            icon: Icon(Icons.library_music),
+            label: "Relax",
           ),
           BottomNavigationBarItem(
             icon: Container(
@@ -72,12 +75,12 @@ class _HomePageState extends State<HomePage> {
             label: "Chatbot",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.quiz),
-            label: "Quiz",
+            icon: Icon(Icons.lightbulb),
+            label: "Mind Game",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            label: "About",
+            icon: Icon(Icons.feedback),
+            label: "Suggestion",
           ),
         ],
         selectedItemColor: Colors.purple,
