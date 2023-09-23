@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "497282893394",
+    "project_id": "inner-balance-58622",
+    "storage_bucket": "inner-balance-58622.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497282893394:android:b5b6a43f3e98639879c18b",
+        "android_client_info": {
+          "package_name": "com.example.innerbalance"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqkdcZyiwobFutV-gOnTok0tCZdvZm4eM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
