@@ -50,6 +50,7 @@ dependencies:
   flutter_lints: ^2.0.0
   googleapis: ^11.4.0
   googleapis_auth: ^1.4.1
+  kommunicate_flutter: ^1.6.9
 
 dev_dependencies:
   flutter_test:

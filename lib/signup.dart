@@ -31,7 +31,7 @@ class _SignupPageState extends State<SignupPage> {
         title: Text("Sign Up"),
       ),
       body: Center(
-        child: SingleChildScrollView( // Wrap your content with SingleChildScrollView
+        child: SingleChildScrollView(
           child: Center(
             child: Padding(
               padding: const EdgeInsets.all(16.0),
@@ -49,7 +49,7 @@ class _SignupPageState extends State<SignupPage> {
                             Container(
                               decoration: BoxDecoration(
                                 border: Border.all(
-                                  color: Colors.blue, // Customize border color
+                                  color: Colors.blue,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -57,7 +57,7 @@ class _SignupPageState extends State<SignupPage> {
                                 controller: _nameController,
                                 decoration: InputDecoration(
                                   labelText: 'Name',
-                                  border: InputBorder.none, // Remove default border
+                                  border: InputBorder.none,
                                 ),
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
@@ -74,7 +74,7 @@ class _SignupPageState extends State<SignupPage> {
                             Container(
                               decoration: BoxDecoration(
                                 border: Border.all(
-                                  color: Colors.green, // Customize border color
+                                  color: Colors.green,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -100,7 +100,7 @@ class _SignupPageState extends State<SignupPage> {
                             Container(
                               decoration: BoxDecoration(
                                 border: Border.all(
-                                  color: Colors.orange, // Customize border color
+                                  color: Colors.orange,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -131,7 +131,7 @@ class _SignupPageState extends State<SignupPage> {
                         Container(
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: Colors.red, // Customize border color
+                              color: Colors.red,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -167,7 +167,7 @@ class _SignupPageState extends State<SignupPage> {
                         Container(
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: Colors.purple, // Customize border color
+                              color: Colors.purple,
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -227,14 +227,13 @@ class _SignupPageState extends State<SignupPage> {
           email: _email,
           password: _password,
         );
-        // User is successfully registered and logged in
+
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (context) => HomePage(user: userCredential.user!),
           ),
         );
       } catch (e) {
-        // Handle registration errors (e.g., email already in use)
         print("Error: $e");
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

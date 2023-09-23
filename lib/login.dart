@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
       if (googleUser == null) {
-        return; // User canceled Google Sign-In
+        return;
       }
 
       final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
@@ -35,7 +35,6 @@ class _LoginPageState extends State<LoginPage> {
       );
 
       final UserCredential userCredential = await _auth.signInWithCredential(credential);
-      // User is successfully logged in
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => HomePage(user: userCredential.user!),
@@ -75,18 +74,18 @@ class _LoginPageState extends State<LoginPage> {
                         Center(
                           child: Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.0), // Add rounded corners
+                              borderRadius: BorderRadius.circular(8.0),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.white.withOpacity(0.5),
                                   spreadRadius: 2,
                                   blurRadius: 5,
-                                  offset: Offset(0, 3), // Add a shadow
+                                  offset: Offset(0, 3),
                                 ),
                               ],
                             ),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0), // Match the container's border radius
+                              borderRadius: BorderRadius.circular(8.0),
                               child: Image.asset(
                                 'assets/logo.gif',
                                 width: 300,
@@ -102,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                             labelText: 'Email',
                             border: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.blue, // Customize border color
+                                color: Colors.blue,
                               ),
                             ),
                           ),
@@ -124,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                             labelText: 'Password',
                             border: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colors.red, // Customize border color
+                                color: Colors.red,
                               ),
                             ),
                             suffixIcon: IconButton(
@@ -203,14 +202,12 @@ class _LoginPageState extends State<LoginPage> {
           email: _email,
           password: _password,
         );
-        // User is successfully logged in
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (context) => HomePage(user: userCredential.user!),
           ),
         );
       } catch (e) {
-        // Handle login errors (e.g., invalid credentials)
         print("Error: $e");
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

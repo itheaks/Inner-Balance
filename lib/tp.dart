@@ -18,14 +18,14 @@ class TpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome App'), // Set the app bar title
+        title: Text('Welcome App'),
       ),
       body: Center(
         child: Text(
           'Welcome',
           style: TextStyle(
-            fontSize: 24.0, // Adjust the font size as needed
-            fontWeight: FontWeight.bold, // You can change the font weight
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),

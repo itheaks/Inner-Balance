@@ -35,7 +35,6 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-          // Place designn.png at the topmost
           Positioned.fill(
             top: 0.0,
             child: Image.asset(
@@ -44,16 +43,14 @@ class _SplashScreenState extends State<SplashScreen> {
               fit: BoxFit.cover,
             ),
           ),
-          // Place IdeaProtect.gif at the center
           Positioned.fill(
             child: Center(
               child: Image.asset(
                 'assets/logo.gif',
-                width: 200, // Set your preferred width
+                width: 200,
               ),
             ),
           ),
-          // Place design.png at the bottommost
           Positioned.fill(
             bottom: 0.0,
             child: Image.asset(
