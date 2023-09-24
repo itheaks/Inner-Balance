@@ -365,11 +365,11 @@ class HomeMainScreen extends StatelessWidget {
                           children: [
                             SizedBox(width: 10),
                             Icon(
-                              Icons.library_music, // This is the book icon
+                              Icons.library_music, 
                               color: Colors.white,
-                              size: 40, // Adjust the size as needed
+                              size: 40,
                             ),
-                            SizedBox(width: 8), // Add some spacing between the icon and text
+                            SizedBox(width: 8),
                             Text(
                               '  Relax \nYourself',
                               style: TextStyle(fontSize: 18, color: Colors.white),
