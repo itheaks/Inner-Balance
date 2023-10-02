@@ -45,7 +45,6 @@ class _LoginPageState extends State<LoginPage> {
     AndroidNotificationDetails(
       'channel_id',
       'channel_name',
-      //'channel_description',
       importance: Importance.high,
       priority: Priority.high,
       enableVibration: true,
@@ -57,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
       0,
       'Inner Balance',
       'Come and Enjoy the Application',
-      RepeatInterval.everyMinute,
+      RepeatInterval.daily, //Notification Interval
       platformChannelSpecifics,
       androidAllowWhileIdle: true,
     );

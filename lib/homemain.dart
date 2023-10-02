@@ -365,7 +365,7 @@ class HomeMainScreen extends StatelessWidget {
                           children: [
                             SizedBox(width: 10),
                             Icon(
-                              Icons.library_music, 
+                              Icons.library_music,
                               color: Colors.white,
                               size: 40,
                             ),
